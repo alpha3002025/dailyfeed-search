@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: dailyfeed-search
+  data:
+    mongodb:
+      host: ${MONGODB_HOST:localhost}
+      port: ${MONGODB_PORT:27017}
+      username: ${MONGODB_USER:dailyfeed-search}
+      password: ${MONGODB_PASSWORD:hitEnter!!!}
+      protocol: mongodb # mongodb+srv or mongodb (atlas 에서만 mongodb+srv)
+app:
+  dailyfeed-search:
+    mongodb:
+      database: dailyfeed
