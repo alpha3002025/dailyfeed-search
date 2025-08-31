@@ -13,8 +13,8 @@ import org.springframework.data.mongodb.MongoDatabaseFactory;
 import org.springframework.data.mongodb.MongoTransactionManager;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.SimpleMongoClientDatabaseFactory;
-import org.springframework.data.mongodb.core.convert.MongoConverter;
-import org.springframework.data.mongodb.core.convert.MongoCustomConversions;
+import org.springframework.data.mongodb.core.convert.*;
+import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
 
 import java.util.Arrays;
 
@@ -77,5 +77,16 @@ public class MongoConfiguration {
                         new Decimal128ToBigDecimalConverter()
                 )
         );
+    }
+
+    @Bean
+    public MappingMongoConverter mappingMongoConverter(
+            MongoDatabaseFactory databaseFactory,
+            MongoMappingContext mongoMappingContext
+    ){
+        DbRefResolver dbRefResolver = new DefaultDbRefResolver(databaseFactory);
+        MappingMongoConverter converter = new MappingMongoConverter(dbRefResolver, mongoMappingContext);
+        converter.setTypeMapper(new DefaultMongoTypeMapper(null));
+        return converter;
     }
 }

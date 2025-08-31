@@ -1,1 +1,1 @@
-rootProject.name = "dailyfeed-search"
+//rootProject.name = "dailyfeed-search"
