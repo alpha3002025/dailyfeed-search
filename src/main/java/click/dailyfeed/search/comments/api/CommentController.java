@@ -19,7 +19,7 @@ public class CommentController {
     private final CommentService commentService;
 
     @GetMapping("/posts/{postId}")
-    public DailyfeedPageResponse<CommentDto.CommentSearchResult> getComments(
+    public DailyfeedPageResponse<CommentDto.CommentSearchResult> getCommentsByPostId(
             @PathVariable("postId") Long postId,
             @PageableDefault(
                 page = 0, size = 10, sort = "createAt", direction = Sort.Direction.DESC
@@ -29,7 +29,7 @@ public class CommentController {
     }
 
     @GetMapping
-    public DailyfeedPageResponse<CommentDto.CommentSearchResult> getComments(
+    public DailyfeedPageResponse<CommentDto.CommentSearchResult> getCommentsByKeyword(
             @RequestParam("keyword") String keyword,
             @PageableDefault(
                     page = 0, size = 10, sort = "createAt", direction = Sort.Direction.DESC

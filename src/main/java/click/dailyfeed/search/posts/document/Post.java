@@ -1,4 +1,5 @@
-package click.dailyfeed.search.comments.document;
+package click.dailyfeed.search.posts.document;
+
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -12,28 +13,19 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import java.time.LocalDateTime;
 
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "comments")
-public class Comment {
+@Document(collection = "posts")
+public class Post {
     @Id
     private ObjectId id;
-
-    private Long pk;
-
-    @Field("parent_pk")
-    private Long parentPk;
 
     @Field("post_pk")
     private Long postPk;
 
+    private String title;
+
     private String content;
-
-    private String author;
-
-    private String path;
-
-    private Integer depth;
 
     @Field("created_at")
     private LocalDateTime createdAt;
@@ -44,9 +36,6 @@ public class Comment {
     @Field("is_deleted")
     private Boolean isDeleted;
 
-    @Field("reply_count")
-    private Integer replyCount; // 자식 댓글 수
-
-    @Field("total_replies")
-    private Integer totalReplies; // 전체 하위 댓글 수
+    @Field("comment_count")
+    private Integer commentCount;
 }

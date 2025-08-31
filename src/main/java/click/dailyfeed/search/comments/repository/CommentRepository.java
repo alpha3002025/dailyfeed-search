@@ -6,7 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface CommentsRepository extends MongoRepository<Comment, ObjectId> {
+public interface CommentRepository extends MongoRepository<Comment, ObjectId> {
     // 게시글에 대한 댓글 조회
     Page<Comment> findCommentsByPostPk(Long postPk, Pageable pageable);
 

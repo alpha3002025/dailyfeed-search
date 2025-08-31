@@ -11,7 +11,7 @@ import org.springframework.data.domain.Page;
 import java.util.List;
 
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface CommentsMapper {
+public interface CommentMapper {
 
     @Mapping(target = "pk", source = "comment.pk")
     @Mapping(target = "parentPk", source = "comment.parentPk")
@@ -22,7 +22,6 @@ public interface CommentsMapper {
     @Mapping(target = "depth", source = "comment.depth")
     @Mapping(target = "createdAt", source = "comment.createdAt")
     @Mapping(target = "updatedAt", source = "comment.updatedAt")
-    @Mapping(target = "isDeleted", source = "comment.isDeleted")
     @Mapping(target = "replyCount", source = "comment.replyCount")
     @Mapping(target = "totalReplies", source = "comment.totalReplies")
     CommentDto.CommentSearchResult toCommentSearchResult(Comment comment);

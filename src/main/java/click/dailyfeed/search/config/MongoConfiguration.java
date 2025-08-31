@@ -61,8 +61,8 @@ public class MongoConfiguration {
         return new SimpleMongoClientDatabaseFactory(mongoClient, database);
     }
 
-    @Bean
-    public MongoTemplate dailyfeedMongoTemplate(
+    @Bean(name = "mongoTemplate")
+    public MongoTemplate mongoTemplate(
             MongoDatabaseFactory dailyfeedMongoDatabaseFactory,
             MongoConverter mongoConverter
     ){
