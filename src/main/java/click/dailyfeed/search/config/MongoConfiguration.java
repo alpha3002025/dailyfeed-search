@@ -2,11 +2,11 @@ package click.dailyfeed.search.config;
 
 import click.dailyfeed.search.config.config.BigDecimalToDecimal128Converter;
 import click.dailyfeed.search.config.config.Decimal128ToBigDecimalConverter;
+import com.mongodb.ConnectionString;
+import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import org.springframework.beans.factory.annotation.Value;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.MongoDatabaseFactory;
@@ -22,31 +22,23 @@ import java.util.Arrays;
 @EnableTransactionManagement
 @Configuration
 public class MongoConfiguration {
-    @Value("${spring.data.mongodb.host}")
-    private String host;
-
-    @Value("${spring.data.mongodb.port}")
-    private int port;
-
-    @Value("${spring.data.mongodb.username}")
-    private String username;
-
-    @Value("${spring.data.mongodb.password}")
-    private String password;
-
-    @Value("${spring.data.mongodb.protocol}")
-    private String protocol;
+    @Value("${spring.data.mongodb.uri}")
+    private String mongoUri;
 
     @Value("${app.dailyfeed-search.mongodb.database}")
     private String database;
 
     @Bean
     public MongoClient mongoClient(){
-        String encodedUsername = URLEncoder.encode(username, StandardCharsets.UTF_8);
-        String encodedPassword = URLEncoder.encode(password, StandardCharsets.UTF_8);
-        String mongoUri = String.format("%s://%s:%s@%s:%d/%s",
-                protocol, encodedUsername, encodedPassword, host, port, database);
-        return MongoClients.create(mongoUri);
+        try {
+            ConnectionString connectionString = new ConnectionString(mongoUri);
+            MongoClientSettings settings = MongoClientSettings.builder()
+                    .applyConnectionString(connectionString)
+                    .build();
+            return MongoClients.create(settings);
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to create MongoDB client", e);
+        }
     }
 
     @Bean
