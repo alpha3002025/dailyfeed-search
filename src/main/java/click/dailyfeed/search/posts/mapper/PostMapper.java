@@ -20,7 +20,9 @@ public interface PostMapper {
     @Mapping(target = "createdAt", source = "post.createdAt")
     @Mapping(target = "updatedAt", source = "post.updatedAt")
     @Mapping(target = "commentCount", source = "post.commentCount")
-    PostDto.PostSearchResult toPostSearchResult(Post post);
+    @Mapping(target = "isCurrent", source = "post.isCurrent")
+    @Mapping(target = "version", source = "post.version")
+    PostDto.PostSearchResult toSearchResult(Post post);
 
     default <T> DailyfeedPage<T> fromMongoPage(Page<Post> page, List<T> content) {
         return DailyfeedPage.<T>builder()

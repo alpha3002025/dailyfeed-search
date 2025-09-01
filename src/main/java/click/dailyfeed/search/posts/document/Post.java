@@ -38,4 +38,10 @@ public class Post {
 
     @Field("comment_count")
     private Integer commentCount;
+
+    @Field("is_current")
+    private Boolean isCurrent;
+
+    @Field("version")
+    private Integer version;
 }

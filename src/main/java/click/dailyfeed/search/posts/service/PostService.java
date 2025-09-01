@@ -27,7 +27,7 @@ public class PostService {
     public DailyfeedPageResponse<PostDto.PostSearchResult> getPostsByKeyword(String keyword, Pageable pageable) {
         Page<Post> pageResult = postMongoRepository.findPostsByContentLike(keyword, pageable);
 
-        List<PostDto.PostSearchResult> searchResults = pageResult.getContent().stream().map(postMapper::toPostSearchResult).toList();
+        List<PostDto.PostSearchResult> searchResults = pageResult.getContent().stream().map(postMapper::toSearchResult).toList();
 
         DailyfeedPage<PostDto.PostSearchResult> page = postMapper.fromMongoPage(pageResult, searchResults);
 

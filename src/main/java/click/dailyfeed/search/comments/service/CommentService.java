@@ -27,10 +27,10 @@ public class CommentService {
         // MongoDB 조회
         Page<Comment> commentsByPostPk = commentRepository.findCommentsByPostPk(postId, pageable);
         // 페이지 컨텐츠 변환
-        List<CommentDto.CommentSearchResult> searchResults = commentsByPostPk.getContent().stream().map(commentMapper::toCommentSearchResult).toList();
+        List<CommentDto.CommentSearchResult> searchResults = commentsByPostPk.getContent().stream().map(commentMapper::toSearchResult).toList();
         // Response 변환
         return DailyfeedPageResponse.<CommentDto.CommentSearchResult>builder()
-                .content(commentMapper.fromMongoCommentPage(commentsByPostPk, searchResults))
+                .content(commentMapper.fromMongoPage(commentsByPostPk, searchResults))
                 .ok("Y")
                 .reason("SUCCESS")
                 .statusCode("200")
@@ -42,10 +42,10 @@ public class CommentService {
         // MongoDB 조회
         Page<Comment> commentsByPostPk = commentRepository.findCommentsByContentLike(keyword, pageable);
         // 페이지 컨텐츠 변환
-        List<CommentDto.CommentSearchResult> searchResults = commentsByPostPk.getContent().stream().map(commentMapper::toCommentSearchResult).toList();
+        List<CommentDto.CommentSearchResult> searchResults = commentsByPostPk.getContent().stream().map(commentMapper::toSearchResult).toList();
         // Response 변환
         return DailyfeedPageResponse.<CommentDto.CommentSearchResult>builder()
-                .content(commentMapper.fromMongoCommentPage(commentsByPostPk, searchResults))
+                .content(commentMapper.fromMongoPage(commentsByPostPk, searchResults))
                 .ok("Y")
                 .reason("SUCCESS")
                 .statusCode("200")

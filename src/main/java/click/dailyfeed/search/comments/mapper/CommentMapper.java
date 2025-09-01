@@ -24,9 +24,9 @@ public interface CommentMapper {
     @Mapping(target = "updatedAt", source = "comment.updatedAt")
     @Mapping(target = "replyCount", source = "comment.replyCount")
     @Mapping(target = "totalReplies", source = "comment.totalReplies")
-    CommentDto.CommentSearchResult toCommentSearchResult(Comment comment);
+    CommentDto.CommentSearchResult toSearchResult(Comment comment);
 
-    default <T> DailyfeedPage<T> fromMongoCommentPage(Page<Comment> page, List<T> content) {
+    default <T> DailyfeedPage<T> fromMongoPage(Page<Comment> page, List<T> content) {
         return DailyfeedPage.<T>builder()
                 .content(content)
                 .page(page.getNumber())
