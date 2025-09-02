@@ -1,6 +1,6 @@
 package click.dailyfeed.search.comments.mapper;
 
-import click.dailyfeed.code.domain.contents.comment.dto.CommentDto;
+import click.dailyfeed.code.domain.content.comment.dto.CommentDto;
 import click.dailyfeed.code.global.web.response.DailyfeedPage;
 import click.dailyfeed.search.comments.document.Comment;
 import org.mapstruct.Mapper;

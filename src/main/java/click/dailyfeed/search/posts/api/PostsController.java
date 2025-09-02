@@ -1,6 +1,6 @@
 package click.dailyfeed.search.posts.api;
 
-import click.dailyfeed.code.domain.contents.post.dto.PostDto;
+import click.dailyfeed.code.domain.content.post.dto.PostDto;
 import click.dailyfeed.code.global.web.response.DailyfeedPageResponse;
 import click.dailyfeed.search.posts.service.PostService;
 import lombok.RequiredArgsConstructor;

@@ -1,7 +1,7 @@
 package click.dailyfeed.search.posts.mapper;
 
 
-import click.dailyfeed.code.domain.contents.post.dto.PostDto;
+import click.dailyfeed.code.domain.content.post.dto.PostDto;
 import click.dailyfeed.code.global.web.response.DailyfeedPage;
 import click.dailyfeed.search.posts.document.Post;
 import org.mapstruct.Mapper;
