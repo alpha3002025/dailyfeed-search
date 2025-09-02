@@ -1,7 +1,7 @@
 package click.dailyfeed.search.config;
 
-import click.dailyfeed.search.config.config.BigDecimalToDecimal128Converter;
-import click.dailyfeed.search.config.config.Decimal128ToBigDecimalConverter;
+import click.dailyfeed.search.config.converter.BigDecimalToDecimal128Converter;
+import click.dailyfeed.search.config.converter.Decimal128ToBigDecimalConverter;
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClient;

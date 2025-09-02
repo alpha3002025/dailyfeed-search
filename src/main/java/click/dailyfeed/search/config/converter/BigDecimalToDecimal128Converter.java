@@ -1,4 +1,4 @@
-package click.dailyfeed.search.config.config;
+package click.dailyfeed.search.config.converter;
 
 import org.bson.types.Decimal128;
 import org.springframework.core.convert.converter.Converter;
