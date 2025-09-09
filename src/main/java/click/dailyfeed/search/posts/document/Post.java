@@ -1,7 +1,6 @@
 package click.dailyfeed.search.posts.document;
 
 
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
