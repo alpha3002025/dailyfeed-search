@@ -1,8 +1,7 @@
 package click.dailyfeed.search.posts.mapper;
 
-
 import click.dailyfeed.code.domain.content.post.dto.PostDto;
-import click.dailyfeed.code.global.web.response.DailyfeedPage;
+import click.dailyfeed.code.global.web.page.DailyfeedPage;
 import click.dailyfeed.search.posts.document.Post;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -35,20 +34,6 @@ public interface PostMapper {
                 .isLast(page.isLast())
                 .hasNext(page.hasNext())
                 .hasPrevious(page.hasPrevious())
-                .build();
-    }
-
-    default <T> DailyfeedPage<T> emptyPage() {
-        return DailyfeedPage.<T>builder()
-                .content(List.of())
-                .page(0)
-                .size(0)
-                .totalElements(0)
-                .totalPages(0)
-                .isFirst(true)
-                .isLast(true)
-                .hasNext(false)
-                .hasPrevious(false)
                 .build();
     }
 }

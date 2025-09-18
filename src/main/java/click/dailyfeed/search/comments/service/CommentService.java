@@ -1,6 +1,7 @@
 package click.dailyfeed.search.comments.service;
 
 import click.dailyfeed.code.domain.content.comment.dto.CommentDto;
+import click.dailyfeed.code.global.web.code.ResponseSuccessCode;
 import click.dailyfeed.code.global.web.response.DailyfeedPageResponse;
 import click.dailyfeed.search.comments.document.Comment;
 import click.dailyfeed.search.comments.mapper.CommentMapper;
@@ -9,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,9 +33,8 @@ public class CommentService {
         // Response 변환
         return DailyfeedPageResponse.<CommentDto.CommentSearchResult>builder()
                 .content(commentMapper.fromMongoPage(commentsByPostPk, searchResults))
-                .ok("Y")
-                .reason("SUCCESS")
-                .statusCode("200")
+                .status(HttpStatus.OK.value())
+                .result(ResponseSuccessCode.SUCCESS)
                 .build();
     }
 
@@ -46,9 +47,8 @@ public class CommentService {
         // Response 변환
         return DailyfeedPageResponse.<CommentDto.CommentSearchResult>builder()
                 .content(commentMapper.fromMongoPage(commentsByPostPk, searchResults))
-                .ok("Y")
-                .reason("SUCCESS")
-                .statusCode("200")
+                .status(HttpStatus.OK.value())
+                .result(ResponseSuccessCode.SUCCESS)
                 .build();
     }
 }

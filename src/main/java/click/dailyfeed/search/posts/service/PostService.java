@@ -1,7 +1,8 @@
 package click.dailyfeed.search.posts.service;
 
 import click.dailyfeed.code.domain.content.post.dto.PostDto;
-import click.dailyfeed.code.global.web.response.DailyfeedPage;
+import click.dailyfeed.code.global.web.code.ResponseSuccessCode;
+import click.dailyfeed.code.global.web.page.DailyfeedPage;
 import click.dailyfeed.code.global.web.response.DailyfeedPageResponse;
 import click.dailyfeed.search.posts.document.Post;
 import click.dailyfeed.search.posts.mapper.PostMapper;
@@ -10,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,7 +35,8 @@ public class PostService {
 
         return DailyfeedPageResponse.<PostDto.PostSearchResult>builder()
                 .content(page)
-                .ok("Y").reason("SUCCESS").statusCode("200")
+                .status(HttpStatus.OK.value())
+                .result(ResponseSuccessCode.SUCCESS)
                 .build();
     }
 }
