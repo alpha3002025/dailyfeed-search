@@ -34,7 +34,7 @@ public class PostService {
         DailyfeedPage<PostDto.PostSearchResult> page = postMapper.fromMongoPage(pageResult, searchResults);
 
         return DailyfeedPageResponse.<PostDto.PostSearchResult>builder()
-                .content(page)
+                .data(page)
                 .status(HttpStatus.OK.value())
                 .result(ResponseSuccessCode.SUCCESS)
                 .build();

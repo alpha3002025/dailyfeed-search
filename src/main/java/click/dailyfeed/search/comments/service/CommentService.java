@@ -32,7 +32,7 @@ public class CommentService {
         List<CommentDto.CommentSearchResult> searchResults = commentsByPostPk.getContent().stream().map(commentMapper::toSearchResult).toList();
         // Response 변환
         return DailyfeedPageResponse.<CommentDto.CommentSearchResult>builder()
-                .content(commentMapper.fromMongoPage(commentsByPostPk, searchResults))
+                .data(commentMapper.fromMongoPage(commentsByPostPk, searchResults))
                 .status(HttpStatus.OK.value())
                 .result(ResponseSuccessCode.SUCCESS)
                 .build();
@@ -46,7 +46,7 @@ public class CommentService {
         List<CommentDto.CommentSearchResult> searchResults = commentsByPostPk.getContent().stream().map(commentMapper::toSearchResult).toList();
         // Response 변환
         return DailyfeedPageResponse.<CommentDto.CommentSearchResult>builder()
-                .content(commentMapper.fromMongoPage(commentsByPostPk, searchResults))
+                .data(commentMapper.fromMongoPage(commentsByPostPk, searchResults))
                 .status(HttpStatus.OK.value())
                 .result(ResponseSuccessCode.SUCCESS)
                 .build();
