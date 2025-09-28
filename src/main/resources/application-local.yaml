@@ -9,3 +9,5 @@ app:
   dailyfeed-search:
     mongodb:
       database: dailyfeed
+server:
+  port: 8083

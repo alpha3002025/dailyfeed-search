@@ -1,4 +1,4 @@
 ### GET request to example server
-GET http://localhost:8080/api/search/posts/?keyword=테스트
+GET http://localhost:8083/api/search/posts/?keyword=김미용사
 
 ###
