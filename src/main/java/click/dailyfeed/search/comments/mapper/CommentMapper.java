@@ -13,17 +13,17 @@ import java.util.List;
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface CommentMapper {
 
-    @Mapping(target = "pk", source = "comment.pk")
-    @Mapping(target = "parentPk", source = "comment.parentPk")
-    @Mapping(target = "postPk", source = "comment.postPk")
-    @Mapping(target = "content", source = "comment.content")
-    @Mapping(target = "author", source = "comment.author")
-    @Mapping(target = "path", source = "comment.path")
-    @Mapping(target = "depth", source = "comment.depth")
-    @Mapping(target = "createdAt", source = "comment.createdAt")
-    @Mapping(target = "updatedAt", source = "comment.updatedAt")
-    @Mapping(target = "replyCount", source = "comment.replyCount")
-    @Mapping(target = "totalReplies", source = "comment.totalReplies")
+//    @Mapping(target = "pk", source = "comment.pk")
+//    @Mapping(target = "parentPk", source = "comment.parentPk")
+//    @Mapping(target = "postPk", source = "comment.postPk")
+//    @Mapping(target = "content", source = "comment.content")
+//    @Mapping(target = "author", source = "comment.author")
+//    @Mapping(target = "path", source = "comment.path")
+//    @Mapping(target = "depth", source = "comment.depth")
+//    @Mapping(target = "createdAt", source = "comment.createdAt")
+//    @Mapping(target = "updatedAt", source = "comment.updatedAt")
+//    @Mapping(target = "replyCount", source = "comment.replyCount")
+//    @Mapping(target = "totalReplies", source = "comment.totalReplies")
     CommentDto.CommentSearchResult toSearchResult(Comment comment);
 
     default <T> DailyfeedPage<T> fromMongoPage(Page<Comment> page, List<T> content) {

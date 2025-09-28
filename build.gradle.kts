@@ -34,6 +34,8 @@ allprojects {
 
     dependencies {
         implementation(project(":dailyfeed-code"))
+        implementation(project(":dailyfeed-feign"))
+        implementation(project(":dailyfeed-pagination-support"))
 
         implementation("org.mapstruct:mapstruct:${mapstructVersion}")
         annotationProcessor("org.mapstruct:mapstruct-processor:${mapstructVersion}")
