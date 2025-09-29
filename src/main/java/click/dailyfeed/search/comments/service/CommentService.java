@@ -5,6 +5,8 @@ import click.dailyfeed.code.global.web.code.ResponseSuccessCode;
 import click.dailyfeed.code.global.web.response.DailyfeedPageResponse;
 import click.dailyfeed.search.comments.document.CommentDocument;
 import click.dailyfeed.search.comments.mapper.CommentMapper;
+import click.dailyfeed.search.comments.projection.CommentLikeCountProjection;
+import click.dailyfeed.search.comments.repository.CommentLikeMongoRepository;
 import click.dailyfeed.search.comments.repository.CommentRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,6 +24,7 @@ import java.util.List;
 @Service
 public class CommentService {
     private final CommentRepository commentRepository;
+    private final CommentLikeMongoRepository commentLikeMongoRepository;
     private final CommentMapper commentMapper;
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
@@ -50,5 +53,13 @@ public class CommentService {
                 .status(HttpStatus.OK.value())
                 .result(ResponseSuccessCode.SUCCESS)
                 .build();
+    }
+
+    @Transactional(readOnly = true)
+    public List<CommentDto.CommentLikeCountStatistics> findCommentLikQueryInCount(CommentDto.CommentLikeCountBulkRequest request) {
+        List<CommentLikeCountProjection> result = commentLikeMongoRepository.countLikesByCommentPkSet(request.getCommentIds());
+        return result.stream()
+                .map(commentLikeCountProjection -> commentMapper.toCommentLikeCountStatistics(commentLikeCountProjection))
+                .toList();
     }
 }

@@ -6,8 +6,12 @@ import click.dailyfeed.code.global.web.page.DailyfeedPage;
 import click.dailyfeed.code.global.web.response.DailyfeedPageResponse;
 import click.dailyfeed.feign.domain.post.PostFeignHelper;
 import click.dailyfeed.pagination.mapper.PageMapper;
+import click.dailyfeed.search.comments.projection.PostCommentCountProjection;
+import click.dailyfeed.search.comments.repository.CommentRepository;
 import click.dailyfeed.search.posts.document.PostDocument;
 import click.dailyfeed.search.posts.mapper.PostMapper;
+import click.dailyfeed.search.posts.projection.PostLikeCountProjection;
+import click.dailyfeed.search.posts.repository.PostLikeMongoRepository;
 import click.dailyfeed.search.posts.repository.PostMongoRepository;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -29,6 +33,8 @@ import java.util.stream.Collectors;
 @Service
 public class PostService {
     private final PostMongoRepository postMongoRepository;
+    private final CommentRepository commentRepository;
+    private final PostLikeMongoRepository postLikeMongoRepository;
     private final PostFeignHelper postFeignHelper;
     private final PostMapper postMapper;
     private final PageMapper pageMapper;
@@ -51,5 +57,17 @@ public class PostService {
                 .status(HttpStatus.OK.value())
                 .result(ResponseSuccessCode.SUCCESS)
                 .build();
+    }
+
+    @Transactional(readOnly = true)
+    public List<PostDto.PostLikeCountStatistics> countPostLikeCount(PostDto.PostLikeCountQueryBulkRequest request) {
+        List<PostLikeCountProjection> result = postLikeMongoRepository.countLikesByPostPks(request.getPostPks());
+        return result.stream().map(postMapper::toPostLikeStatistics).toList();
+    }
+
+    @Transactional(readOnly = true)
+    public List<PostDto.PostCommentCountStatistics> countPostCommentCount(PostDto.PostCommentCountQueryBulkRequest request) {
+        List<PostCommentCountProjection> result = commentRepository.countCommentsByPostPks(request.getPostPks());
+        return result.stream().map(postMapper::toPostCommentCountStatistics).toList();
     }
 }

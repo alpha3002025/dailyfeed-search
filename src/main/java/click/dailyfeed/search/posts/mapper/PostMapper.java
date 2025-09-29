@@ -2,7 +2,9 @@ package click.dailyfeed.search.posts.mapper;
 
 import click.dailyfeed.code.domain.content.post.dto.PostDto;
 import click.dailyfeed.code.global.web.page.DailyfeedPage;
+import click.dailyfeed.search.comments.projection.PostCommentCountProjection;
 import click.dailyfeed.search.posts.document.PostDocument;
+import click.dailyfeed.search.posts.projection.PostLikeCountProjection;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.springframework.data.domain.Page;
@@ -39,6 +41,20 @@ public interface PostMapper {
                 .isLast(page.isLast())
                 .hasNext(page.hasNext())
                 .hasPrevious(page.hasPrevious())
+                .build();
+    }
+
+    default PostDto.PostLikeCountStatistics toPostLikeStatistics(PostLikeCountProjection postLikeCountProjection) {
+        return PostDto.PostLikeCountStatistics.builder()
+                .postPk(postLikeCountProjection.getPostPk())
+                .likeCount(postLikeCountProjection.getLikeCount())
+                .build();
+    }
+
+    default PostDto.PostCommentCountStatistics toPostCommentCountStatistics(PostCommentCountProjection postCommentCountProjection) {
+        return PostDto.PostCommentCountStatistics.builder()
+                .postPk(postCommentCountProjection.getPostPk())
+                .commentCount(postCommentCountProjection.getCommentCount())
                 .build();
     }
 }

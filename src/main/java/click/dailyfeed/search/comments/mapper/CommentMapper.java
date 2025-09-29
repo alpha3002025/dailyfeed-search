@@ -3,6 +3,7 @@ package click.dailyfeed.search.comments.mapper;
 import click.dailyfeed.code.domain.content.comment.dto.CommentDto;
 import click.dailyfeed.code.global.web.page.DailyfeedPage;
 import click.dailyfeed.search.comments.document.CommentDocument;
+import click.dailyfeed.search.comments.projection.CommentLikeCountProjection;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.springframework.data.domain.Page;
@@ -24,6 +25,14 @@ public interface CommentMapper {
 //    @Mapping(target = "replyCount", source = "comment.replyCount")
 //    @Mapping(target = "totalReplies", source = "comment.totalReplies")
     CommentDto.CommentSearchResult toSearchResult(CommentDocument commentDocument);
+
+    default CommentDto.CommentLikeCountStatistics toCommentLikeCountStatistics(CommentLikeCountProjection commentLikeCountProjection) {
+        return CommentDto.CommentLikeCountStatistics.builder()
+                .likeCount(commentLikeCountProjection.getLikeCount())
+                .commentPk(commentLikeCountProjection.getCommentPk())
+                .build();
+    }
+
 
     default <T> DailyfeedPage<T> fromMongoPage(Page<CommentDocument> page, List<T> content) {
         return DailyfeedPage.<T>builder()
