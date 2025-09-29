@@ -34,13 +34,4 @@ public class PostDocument {
 
     @Field("is_deleted")
     private Boolean isDeleted;
-
-    @Field("comment_count")
-    private Integer commentCount;
-
-    @Field("is_current")
-    private Boolean isCurrent;
-
-    @Field("version")
-    private Integer version;
 }

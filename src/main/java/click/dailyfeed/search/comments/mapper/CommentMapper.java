@@ -2,9 +2,8 @@ package click.dailyfeed.search.comments.mapper;
 
 import click.dailyfeed.code.domain.content.comment.dto.CommentDto;
 import click.dailyfeed.code.global.web.page.DailyfeedPage;
-import click.dailyfeed.search.comments.document.Comment;
+import click.dailyfeed.search.comments.document.CommentDocument;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
 import org.springframework.data.domain.Page;
 
@@ -24,9 +23,9 @@ public interface CommentMapper {
 //    @Mapping(target = "updatedAt", source = "comment.updatedAt")
 //    @Mapping(target = "replyCount", source = "comment.replyCount")
 //    @Mapping(target = "totalReplies", source = "comment.totalReplies")
-    CommentDto.CommentSearchResult toSearchResult(Comment comment);
+    CommentDto.CommentSearchResult toSearchResult(CommentDocument commentDocument);
 
-    default <T> DailyfeedPage<T> fromMongoPage(Page<Comment> page, List<T> content) {
+    default <T> DailyfeedPage<T> fromMongoPage(Page<CommentDocument> page, List<T> content) {
         return DailyfeedPage.<T>builder()
                 .content(content)
                 .page(page.getNumber())
