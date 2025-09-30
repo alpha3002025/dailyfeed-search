@@ -32,6 +32,12 @@ allprojects {
         mavenCentral()
     }
 
+    dependencyManagement {
+        imports {
+            mavenBom("org.springframework.cloud:spring-cloud-dependencies:2025.0.0")
+        }
+    }
+
     dependencies {
         implementation(project(":dailyfeed-code"))
         implementation(project(":dailyfeed-feign"))
