@@ -10,4 +10,4 @@ app:
     mongodb:
       database: dailyfeed
 server:
-  port: 8083
+  port: ${SERVER_PORT:8083}
