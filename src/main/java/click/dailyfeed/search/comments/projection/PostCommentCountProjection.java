@@ -11,5 +11,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PostCommentCountProjection {
     private Long postPk;
-    private Integer commentCount;
+    private Long commentCount;
 }
