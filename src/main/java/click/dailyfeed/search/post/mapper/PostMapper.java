@@ -2,7 +2,7 @@ package click.dailyfeed.search.posts.mapper;
 
 import click.dailyfeed.code.domain.content.post.dto.PostDto;
 import click.dailyfeed.code.global.web.page.DailyfeedPage;
-import click.dailyfeed.search.comments.projection.PostCommentCountProjection;
+import click.dailyfeed.search.comment.projection.PostCommentCountProjection;
 import click.dailyfeed.search.posts.document.PostDocument;
 import click.dailyfeed.search.posts.projection.PostLikeCountProjection;
 import org.mapstruct.Mapper;
