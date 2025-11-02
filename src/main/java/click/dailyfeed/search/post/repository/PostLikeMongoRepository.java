@@ -1,7 +1,7 @@
-package click.dailyfeed.search.posts.repository;
+package click.dailyfeed.search.post.repository;
 
-import click.dailyfeed.search.posts.document.PostLikeDocument;
-import click.dailyfeed.search.posts.projection.PostLikeCountProjection;
+import click.dailyfeed.search.post.document.PostLikeDocument;
+import click.dailyfeed.search.post.projection.PostLikeCountProjection;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.Aggregation;
 import org.springframework.data.mongodb.repository.MongoRepository;

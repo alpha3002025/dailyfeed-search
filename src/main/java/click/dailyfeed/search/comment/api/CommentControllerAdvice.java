@@ -1,4 +1,4 @@
-package click.dailyfeed.search.comments.api;
+package click.dailyfeed.search.comment.api;
 
 import click.dailyfeed.code.domain.content.comment.exception.CommentException;
 import click.dailyfeed.code.domain.member.key.exception.JwtKeyException;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @Slf4j
-@RestControllerAdvice(basePackages = "click.dailyfeed.search.comments.api")
+@RestControllerAdvice(basePackages = "click.dailyfeed.search.comment.api")
 public class CommentControllerAdvice {
 
     @ExceptionHandler(CommentException.class)

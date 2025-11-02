@@ -1,4 +1,4 @@
-package click.dailyfeed.search.posts.api;
+package click.dailyfeed.search.post.api;
 
 import click.dailyfeed.code.domain.member.key.exception.JwtKeyException;
 import click.dailyfeed.code.domain.member.member.code.MemberHeaderCode;

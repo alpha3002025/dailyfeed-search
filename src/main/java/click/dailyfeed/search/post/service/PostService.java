@@ -1,4 +1,4 @@
-package click.dailyfeed.search.posts.service;
+package click.dailyfeed.search.post.service;
 
 import click.dailyfeed.code.domain.content.post.dto.PostDto;
 import click.dailyfeed.code.global.web.code.ResponseSuccessCode;
@@ -8,11 +8,11 @@ import click.dailyfeed.feign.domain.post.PostFeignHelper;
 import click.dailyfeed.pagination.mapper.PageMapper;
 import click.dailyfeed.search.comment.projection.PostCommentCountProjection;
 import click.dailyfeed.search.comment.repository.CommentRepository;
-import click.dailyfeed.search.posts.document.PostDocument;
-import click.dailyfeed.search.posts.mapper.PostMapper;
-import click.dailyfeed.search.posts.projection.PostLikeCountProjection;
-import click.dailyfeed.search.posts.repository.PostLikeMongoRepository;
-import click.dailyfeed.search.posts.repository.PostMongoRepository;
+import click.dailyfeed.search.post.document.PostDocument;
+import click.dailyfeed.search.post.mapper.PostMapper;
+import click.dailyfeed.search.post.projection.PostLikeCountProjection;
+import click.dailyfeed.search.post.repository.PostLikeMongoRepository;
+import click.dailyfeed.search.post.repository.PostMongoRepository;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

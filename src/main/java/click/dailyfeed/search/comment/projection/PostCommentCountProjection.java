@@ -1,4 +1,4 @@
-package click.dailyfeed.search.comments.projection;
+package click.dailyfeed.search.comment.projection;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

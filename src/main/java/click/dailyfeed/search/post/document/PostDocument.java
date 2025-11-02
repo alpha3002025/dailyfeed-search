@@ -1,4 +1,4 @@
-package click.dailyfeed.search.posts.document;
+package click.dailyfeed.search.post.document;
 
 
 import lombok.AllArgsConstructor;

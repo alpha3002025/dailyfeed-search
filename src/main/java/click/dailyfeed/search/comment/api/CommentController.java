@@ -1,10 +1,10 @@
-package click.dailyfeed.search.comments.api;
+package click.dailyfeed.search.comment.api;
 
 import click.dailyfeed.code.domain.content.comment.dto.CommentDto;
 import click.dailyfeed.code.global.web.code.ResponseSuccessCode;
 import click.dailyfeed.code.global.web.response.DailyfeedPageResponse;
 import click.dailyfeed.code.global.web.response.DailyfeedServerResponse;
-import click.dailyfeed.search.comments.service.CommentService;
+import click.dailyfeed.search.comment.service.CommentService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Pageable;

@@ -1,9 +1,9 @@
-package click.dailyfeed.search.comments.mapper;
+package click.dailyfeed.search.comment.mapper;
 
 import click.dailyfeed.code.domain.content.comment.dto.CommentDto;
 import click.dailyfeed.code.global.web.page.DailyfeedPage;
-import click.dailyfeed.search.comments.document.CommentDocument;
-import click.dailyfeed.search.comments.projection.CommentLikeCountProjection;
+import click.dailyfeed.search.comment.document.CommentDocument;
+import click.dailyfeed.search.comment.projection.CommentLikeCountProjection;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.springframework.data.domain.Page;

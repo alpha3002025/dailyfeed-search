@@ -1,10 +1,10 @@
-package click.dailyfeed.search.posts.api;
+package click.dailyfeed.search.post.api;
 
 import click.dailyfeed.code.domain.content.post.dto.PostDto;
 import click.dailyfeed.code.global.web.code.ResponseSuccessCode;
 import click.dailyfeed.code.global.web.response.DailyfeedPageResponse;
 import click.dailyfeed.code.global.web.response.DailyfeedServerResponse;
-import click.dailyfeed.search.posts.service.PostService;
+import click.dailyfeed.search.post.service.PostService;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -1,4 +1,4 @@
-package click.dailyfeed.search.comments.document;
+package click.dailyfeed.search.comment.document;
 
 import lombok.*;
 import org.bson.types.ObjectId;

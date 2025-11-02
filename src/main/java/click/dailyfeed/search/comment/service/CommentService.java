@@ -1,13 +1,13 @@
-package click.dailyfeed.search.comments.service;
+package click.dailyfeed.search.comment.service;
 
 import click.dailyfeed.code.domain.content.comment.dto.CommentDto;
 import click.dailyfeed.code.global.web.code.ResponseSuccessCode;
 import click.dailyfeed.code.global.web.response.DailyfeedPageResponse;
-import click.dailyfeed.search.comments.document.CommentDocument;
-import click.dailyfeed.search.comments.mapper.CommentMapper;
-import click.dailyfeed.search.comments.projection.CommentLikeCountProjection;
-import click.dailyfeed.search.comments.repository.CommentLikeMongoRepository;
-import click.dailyfeed.search.comments.repository.CommentRepository;
+import click.dailyfeed.search.comment.document.CommentDocument;
+import click.dailyfeed.search.comment.mapper.CommentMapper;
+import click.dailyfeed.search.comment.projection.CommentLikeCountProjection;
+import click.dailyfeed.search.comment.repository.CommentLikeMongoRepository;
+import click.dailyfeed.search.comment.repository.CommentRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;

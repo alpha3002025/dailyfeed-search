@@ -1,7 +1,7 @@
-package click.dailyfeed.search.comments.repository;
+package click.dailyfeed.search.comment.repository;
 
-import click.dailyfeed.search.comments.document.CommentLikeDocument;
-import click.dailyfeed.search.comments.projection.CommentLikeCountProjection;
+import click.dailyfeed.search.comment.document.CommentLikeDocument;
+import click.dailyfeed.search.comment.projection.CommentLikeCountProjection;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.Aggregation;
 import org.springframework.data.mongodb.repository.MongoRepository;

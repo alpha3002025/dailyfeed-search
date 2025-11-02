@@ -1,10 +1,10 @@
-package click.dailyfeed.search.posts.mapper;
+package click.dailyfeed.search.post.mapper;
 
 import click.dailyfeed.code.domain.content.post.dto.PostDto;
 import click.dailyfeed.code.global.web.page.DailyfeedPage;
 import click.dailyfeed.search.comment.projection.PostCommentCountProjection;
-import click.dailyfeed.search.posts.document.PostDocument;
-import click.dailyfeed.search.posts.projection.PostLikeCountProjection;
+import click.dailyfeed.search.post.document.PostDocument;
+import click.dailyfeed.search.post.projection.PostLikeCountProjection;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.springframework.data.domain.Page;

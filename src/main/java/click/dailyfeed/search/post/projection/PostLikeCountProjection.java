@@ -1,9 +1,8 @@
-package click.dailyfeed.search.posts.projection;
+package click.dailyfeed.search.post.projection;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Getter
 @NoArgsConstructor

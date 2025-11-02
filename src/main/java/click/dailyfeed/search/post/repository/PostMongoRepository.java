@@ -1,6 +1,6 @@
-package click.dailyfeed.search.posts.repository;
+package click.dailyfeed.search.post.repository;
 
-import click.dailyfeed.search.posts.document.PostDocument;
+import click.dailyfeed.search.post.document.PostDocument;
 import org.bson.types.ObjectId;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
