@@ -53,3 +53,26 @@ dailyfeed:
         timeout:
           connect: 5000
           read: 10000
+
+server:
+  port: ${SERVER_PORT:8083}
+
+# Actuator & Prometheus Metrics
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus,metrics
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: always
+    prometheus:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+    tags:
+      application: ${spring.application.name}
+      environment: dev

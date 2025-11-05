@@ -43,13 +43,23 @@ allprojects {
         implementation(project(":dailyfeed-feign"))
         implementation(project(":dailyfeed-pagination-support"))
 
+        // spring
+        implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
+        implementation("org.springframework.boot:spring-boot-starter-web")
+        implementation("org.springframework.boot:spring-boot-starter-actuator")
+
+        // micrometer & prometheus
+        runtimeOnly("io.micrometer:micrometer-registry-prometheus")
+
+        // mapstruct
         implementation("org.mapstruct:mapstruct:${mapstructVersion}")
         annotationProcessor("org.mapstruct:mapstruct-processor:${mapstructVersion}")
 
-        implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
-        implementation("org.springframework.boot:spring-boot-starter-web")
+        // lombok
         compileOnly("org.projectlombok:lombok")
         annotationProcessor("org.projectlombok:lombok")
+
+        // test
         testImplementation("org.springframework.boot:spring-boot-starter-test")
         testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     }
